@@ -109,7 +109,7 @@ const WelcomeScreen = () => {
             entering={FadeInDown.delay(400).springify()}
             style={styles.title}
           >
-            Mon Pinterest
+            My Pinterest
           </Animated.Text>
           <Animated.Text
             entering={FadeInDown.delay(500).springify()}
