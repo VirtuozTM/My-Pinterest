@@ -3,6 +3,7 @@ import React, { act, memo } from "react";
 import { theme } from "@/constants/theme";
 import { hp } from "@/helpers/common";
 import Animated, { FadeInRight } from "react-native-reanimated";
+import { data } from "@/constants/data";
 
 interface ICategoryItem {
   index: number;
@@ -32,8 +33,8 @@ const CategoryItem = ({
           styles.category,
           {
             backgroundColor: isActive
-              ? theme.colors.neutral(0.8)
-              : theme.colors.white,
+              ? theme.colors.neutral(0.2)
+              : theme.colors.black,
           },
         ]}
       >
@@ -41,11 +42,11 @@ const CategoryItem = ({
           style={[
             styles.title,
             {
-              color: isActive ? theme.colors.white : theme.colors.neutral(0.8),
+              color: isActive ? theme.colors.white : theme.colors.neutral(0.4),
             },
           ]}
         >
-          {title}
+          {data.categoriesTranslations[title] || title}
         </Text>
       </Pressable>
     </Animated.View>
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
     borderCurve: "continuous",
     backgroundColor: theme.colors.white,
-    borderColor: theme.colors.grayBG,
+    borderColor: theme.colors.neutral(0.6),
   },
   title: {
     fontSize: hp(1.8),

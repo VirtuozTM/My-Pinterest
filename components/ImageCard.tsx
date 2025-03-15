@@ -4,6 +4,7 @@ import { Image } from "expo-image";
 import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 import { getImageSize, wp } from "@/helpers/common";
 import { theme } from "@/constants/theme";
+import { router } from "expo-router";
 
 const ImageCard = ({ item, columns, index }) => {
   const getImageHeight = () => {
@@ -12,7 +13,12 @@ const ImageCard = ({ item, columns, index }) => {
   };
 
   return (
-    <Pressable style={[styles.imageWrapper]}>
+    <Pressable
+      onPress={() =>
+        router.push({ pathname: "/home/image", params: { ...item } })
+      }
+      style={[styles.imageWrapper]}
+    >
       <Image
         style={[styles.images, getImageHeight()]}
         source={{ uri: item?.webformatURL }}
@@ -27,7 +33,7 @@ export default ImageCard;
 const styles = StyleSheet.create({
   images: { height: 300, width: "100%" },
   imageWrapper: {
-    margin: wp(0.25),
+    margin: wp(0.5),
     backgroundColor: theme.colors.grayBG,
     borderRadius: theme.radius.xl,
     borderCurve: "continuous",
