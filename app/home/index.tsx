@@ -266,6 +266,8 @@ const HomeScreen = () => {
         <FlatList
           data={data.categories}
           keyExtractor={(item) => item}
+          initialNumToRender={10}
+          maxToRenderPerBatch={10}
           renderItem={({ item, index }) => {
             return (
               <CategoryItem
@@ -331,8 +333,10 @@ const HomeScreen = () => {
         onScroll={handleListScroll}
         onEndReached={handleEndReached}
         onEndReachedThreshold={0.5}
+        getItemType={(item, index) => "image"}
+        keyExtractor={(item) => item.id}
         renderItem={({ item, index }) => (
-          <ImageCard item={item} columns={columns} index={index} />
+          <ImageCard item={item} index={index} />
         )}
         contentContainerStyle={{ paddingBottom: 30 }}
         estimatedItemSize={200}

@@ -1,12 +1,22 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { memo } from "react";
 import { Image } from "expo-image";
 import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 import { getImageSize, wp } from "@/helpers/common";
 import { theme } from "@/constants/theme";
 import { router } from "expo-router";
 
-const ImageCard = ({ item, columns, index }) => {
+interface ImageCardProps {
+  item: {
+    imageHeight: number;
+    imageWidth: number;
+    webformatURL: string;
+    [key: string]: any;
+  };
+  index: number;
+}
+
+const ImageCard = ({ item, index }: ImageCardProps) => {
   const getImageHeight = () => {
     let { imageHeight: height, imageWidth: width } = item;
     return { height: getImageSize(height, width) };
@@ -23,12 +33,14 @@ const ImageCard = ({ item, columns, index }) => {
         style={[styles.images, getImageHeight()]}
         source={{ uri: item?.webformatURL }}
         transition={100}
+        cachePolicy="memory-disk"
+        priority={index < 10 ? "high" : "low"}
       />
     </Pressable>
   );
 };
 
-export default ImageCard;
+export default memo(ImageCard);
 
 const styles = StyleSheet.create({
   images: { height: 300, width: "100%" },
