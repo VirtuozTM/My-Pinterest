@@ -38,14 +38,14 @@ const FiltersModal = forwardRef<Ref, FiltersModalProps>(
       console.log("handleSheetChanges", index);
     }, []);
 
-    const snapPoints = useMemo(() => ["75%"], []);
+    // const snapPoints = useMemo(() => ["75%"], []);
 
     return (
       <BottomSheetModal
         ref={ref}
         onChange={handleSheetChanges}
         index={0}
-        snapPoints={snapPoints}
+        // snapPoints={snapPoints}
         enablePanDownToClose
         enableDynamicSizing
         backdropComponent={(props) => (
@@ -197,9 +197,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,0,0,0.5)",
   },
   content: {
-    gap: 15,
+    gap: 12.5,
     paddingHorizontal: 20,
-    paddingVertical: 10,
   },
   filterText: {
     fontSize: hp(4),
@@ -212,6 +211,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
+    marginBottom: 20,
   },
   applyButton: {
     flex: 1,
