@@ -1,4 +1,4 @@
-# 📱 MyPinterest
+# 📱 Clone Pinterest
 
 <p align="center">
   <video src="https://github.com/user-attachments/assets/2d34e333-ca9c-4f8e-a827-f2881c18e651"/>
@@ -6,7 +6,7 @@
 
 ## 📌 Objectif
 
-MyPinterest est une application mobile qui affiche des images provenant de l'API Pixabay dans une mise en page de type mansory (grille irrégulière) utilisant FlashList. L'application permet aux utilisateurs de parcourir, rechercher, filtrer et partager des images de haute qualité.
+Une application mobile qui affiche des images provenant de l'API Pixabay dans une mise en page de type mansory (grille irrégulière) utilisant FlashList. L'application permet aux utilisateurs de parcourir, rechercher, filtrer et partager des images de haute qualité.
 
 ## 🎯 Fonctionnalités principales
 
